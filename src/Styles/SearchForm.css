@@ -1,0 +1,43 @@
+body {
+  background: midnightblue;
+}
+
+.top-banner form {
+  position: relative;
+  align-items: center;
+}
+
+.top-banner form input {
+  font-size: 2rem;
+  height: 40px;
+  padding: 5px 5px 10px;
+  border-bottom: 1px solid;
+}
+
+.top-banner form input::placeholder {
+  color: currentColor;
+}
+
+.buttonSubmit {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  padding: 15px 20px;
+  margin-left: 15px;
+  border-radius: 5px;
+  background-color: red;
+  transition: 0.3s ease-in-out;
+  color: white;
+}
+
+.top-banner form button:hover {
+  background: greenyellow;
+}
+
+.top-banner form .msg {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  max-width: 450px;
+  min-height: 40px;
+}
