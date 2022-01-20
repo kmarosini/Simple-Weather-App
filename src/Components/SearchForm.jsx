@@ -6,6 +6,7 @@ const SearchForm = () => {
 
     const [cityName, setCityName] = useState('');
     const [data,setData] = useState(null);
+    const [picture, setPicture] = useState('');
     
     function submitHandler(e) {
         e.preventDefault();
@@ -18,9 +19,11 @@ const SearchForm = () => {
             fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=7a0bd8dfb816d361f219cea97c0ae797`)
             .then(response => response.json())
             .then(json => setData(json))
+            fetch(`https://api.teleport.org/api/urban_areas/slug:${cityName.toLowerCase()}/images/`)
+            .then(response => response.json())
+            .then(json => setPicture(json))
         }  
     }, [cityName])
-
 
     return (
         <section className='top-banner'>
@@ -29,7 +32,7 @@ const SearchForm = () => {
                 <button className='buttonSubmit' type="submit">SUBMIT</button>
                 <span className="msg"></span>
             </form>
-            {data && <DisplayWeather cityName={cityName} cityData={data} />}
+            {data && <DisplayWeather cityName={cityName} cityData={data} CityPicture={picture} />}
         </section>
     )
 }
